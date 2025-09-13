@@ -14,7 +14,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -42,7 +42,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun ToggleCard(name: String, modifier: Modifier = Modifier) {
-    var clicked by remember { mutableStateOf(false) }
+    var clicked by rememberSaveable { mutableStateOf(false) }
     val greeting = if (clicked) "Hello" else "Goodbye"
     Column (horizontalAlignment = Alignment.CenterHorizontally) {
         Card(
